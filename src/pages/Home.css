@@ -1,0 +1,289 @@
+/* ================= GENERAL ================= */
+
+.home {
+    font-family: "Segoe UI", system-ui, sans-serif;
+    background: #f8f9fa;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    height: 90vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* SLIDES */
+.hero-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+
+    opacity: 0;
+    transform: scale(1);
+
+    transition: opacity 1.5s ease-in-out, transform 6s ease;
+}
+
+/* ACTIVE */
+.hero-bg.active {
+    opacity: 1;
+    transform: scale(1.08);
+    z-index: 1;
+}
+
+/* OVERLAY */
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        rgba(0,0,0,0.6),
+        rgba(0,0,0,0.3)
+    );
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+/* TEXT */
+.hero-overlay {
+    position: absolute;
+    z-index: 3;
+    text-align: center;
+    color: white;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+
+    animation: fadeUp 1s ease;
+}
+
+/* TEXT ANIMATION */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -30%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* HEADING */
+.hero-overlay h1 {
+    font-size: 52px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* SUBTEXT */
+.hero-overlay p {
+    font-size: 18px;
+    margin: 15px 0 25px;
+    opacity: 0.9;
+}
+
+/* BUTTON */
+.btn {
+    background: linear-gradient(135deg, orange, darkorange);
+    color: white;
+    padding: 12px 28px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(255,165,0,0.4);
+}
+
+/* ================= PRODUCTS ================= */
+
+.products-preview {
+    padding: 70px 20px;
+    background: #f8f9fa;
+    text-align: center;
+}
+
+.products-preview h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+/* SLIDER */
+.slider {
+    display: flex;
+    gap: 20px;
+    overflow: hidden;
+}
+
+/* CARD */
+.card {
+    min-width: 200px;
+    max-width: 200px;
+
+    background: white;
+    border-radius: 16px;
+    padding: 10px;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    flex-shrink: 0;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.card img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* ================= HIGHLIGHTS ================= */
+
+.highlights {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    background: #0b3d2e;
+    color: white;
+    padding: 70px 20px;
+    flex-wrap: wrap;
+}
+
+.highlight-box {
+    width: 260px;
+    text-align: left;
+    transition: 0.3s;
+}
+
+.highlight-box:hover {
+    transform: translateY(-5px);
+}
+
+.highlight-box h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.highlight-box p {
+    font-size: 15px;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* ================= ABOUT ================= */
+
+.about-section {
+    padding: 70px 20px;
+    background: #e8f5e9;
+    text-align: center;
+}
+
+.about-section h2 {
+    font-size: 34px;
+    margin-bottom: 20px;
+}
+
+.about-section p {
+    max-width: 800px;
+    margin: auto;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #444;
+}
+
+/* ================= CTA ================= */
+
+.cta-banner {
+    background: linear-gradient(135deg, #2ecc71, #00c9a7);
+    padding: 60px 20px;
+    text-align: center;
+    color: white;
+}
+
+.cta-content h2 {
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+.cta-content h1 {
+    font-size: 34px;
+    margin: 10px 0 25px;
+}
+
+/* INPUT BOX */
+.cta-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.cta-box input {
+    padding: 12px 15px;
+    width: 280px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+}
+
+/* BUTTON */
+.cta-box button {
+    padding: 12px 28px;
+    border-radius: 30px;
+    background: #0b3d2e;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cta-box button:hover {
+    background: #06271d;
+    transform: scale(1.05);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+    .hero-overlay h1 {
+        font-size: 30px;
+    }
+
+    .hero-overlay p {
+        font-size: 14px;
+    }
+
+    .highlights {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .highlight-box {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .slider {
+        overflow-x: auto;
+    }
+}

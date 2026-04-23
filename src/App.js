@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Products from "./pages/Products";
+import CategoryPage from "./pages/CategoryPage";
+import Certificates from "./pages/Certificates";
+import Blogs from "./pages/Blogs";
+import Contact from "./pages/Contact";
+import ProductDetail from "./pages/ProductDetail";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/products" element={<Products />} />
+
+        {/* ✅ FIXED PARAM NAME */}
+        <Route path="/category/:type" element={<CategoryPage />} />
+
+        <Route path="/certificates" element={<Certificates />} />
+        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/contact" element={<Contact />} />
+
+        {/* PRODUCT DETAILS */}
+        <Route path="/product/:name" element={<ProductDetail />} />
+      </Routes>
+
+    </Router>
   );
 }
 
