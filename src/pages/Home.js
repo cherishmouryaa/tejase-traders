@@ -19,9 +19,14 @@ function Home() {
 
     const navigate = useNavigate();
     const sliderRef = useRef(null);
+
     const [current, setCurrent] = useState(0);
 
-    /* PRELOAD */
+    /* TOUCH STATES */
+    const [touchStart, setTouchStart] = useState(0);
+    const [touchEnd, setTouchEnd] = useState(0);
+
+    /* PRELOAD IMAGES (IMPORTANT) */
     useEffect(() => {
         slides.forEach(src => {
             const img = new Image();
@@ -29,7 +34,7 @@ function Home() {
         });
     }, []);
 
-    /* HERO LOOP */
+    /* AUTO SLIDER */
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrent(prev => (prev + 1) % slides.length);
@@ -37,6 +42,25 @@ function Home() {
 
         return () => clearInterval(interval);
     }, []);
+
+    /* TOUCH HANDLERS */
+    const handleTouchStart = (e) => {
+        setTouchStart(e.targetTouches[0].clientX);
+    };
+
+    const handleTouchMove = (e) => {
+        setTouchEnd(e.targetTouches[0].clientX);
+    };
+
+    const handleTouchEnd = () => {
+        if (touchStart - touchEnd > 50) {
+            setCurrent(prev => (prev + 1) % slides.length);
+        }
+
+        if (touchStart - touchEnd < -50) {
+            setCurrent(prev => (prev - 1 + slides.length) % slides.length);
+        }
+    };
 
     /* PRODUCTS */
     const products = [
@@ -71,18 +95,24 @@ function Home() {
         <div className="home">
 
             {/* HERO */}
-            <div className="hero">
+            <div
+                className="hero"
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
+            >
 
-                <div
-                    className="hero-bg active"
-                    style={{ backgroundImage: `url(${slides[current]})` }}
-                />
+                {/* SLIDES */}
+                {slides.map((slide, i) => (
+                    <div
+                        key={i}
+                        className={`hero-slide ${i === current ? "active" :
+                            i === (current - 1 + slides.length) % slides.length ? "prev" : ""
+                            }`} style={{ backgroundImage: `url(${slide})` }}
+                    />
+                ))}
 
-                <div
-                    className="hero-bg next"
-                    style={{ backgroundImage: `url(${slides[(current + 1) % slides.length]})` }}
-                />
-
+                {/* OVERLAY TEXT */}
                 <div className="hero-overlay">
                     <h1>GLOBAL EXPORT OF AGRI & POULTRY PRODUCTS</h1>
                     <p>Fresh fruits, vegetables, spices and meat exported worldwide</p>
@@ -93,6 +123,15 @@ function Home() {
                         Explore Products
                     </button>
                 </div>
+
+                {/* ARROWS */}
+                <button className="arrow left" onClick={() =>
+                    setCurrent(prev => (prev - 1 + slides.length) % slides.length)
+                }>‹</button>
+
+                <button className="arrow right" onClick={() =>
+                    setCurrent(prev => (prev + 1) % slides.length)
+                }>›</button>
 
             </div>
 
@@ -113,14 +152,19 @@ function Home() {
             {/* HIGHLIGHTS */}
             <section className="highlights">
                 <div className="highlight-box">
+                    <div className="highlight-icon">🌍</div>
                     <h3>Global Export</h3>
                     <p>Serving international markets with quality.</p>
                 </div>
+
                 <div className="highlight-box">
+                    <div className="highlight-icon">✅</div>
                     <h3>Certified Quality</h3>
                     <p>Strict inspection standards.</p>
                 </div>
+
                 <div className="highlight-box">
+                    <div className="highlight-icon">🚚</div>
                     <h3>Fast Logistics</h3>
                     <p>Efficient delivery worldwide.</p>
                 </div>
@@ -129,8 +173,25 @@ function Home() {
             {/* ABOUT */}
             <section className="about-section">
                 <h2>About Our Business</h2>
+
                 <p>
-                    We export agricultural and poultry products with high standards.
+                    Tejase Traders Private Limited is a trusted exporter of high-quality
+                    agricultural and poultry products. We specialize in supplying fresh
+                    fruits, vegetables, spices, and meat products to international markets.
+                </p>
+
+                <p>
+                    Our company follows strict quality control processes at every stage,
+                    from sourcing to packaging, ensuring that our products meet global
+                    standards. We work closely with farmers and suppliers to maintain
+                    freshness, hygiene, and consistency.
+                </p>
+
+                <p>
+                    With a strong logistics network and commitment to timely delivery,
+                    we ensure smooth and reliable exports worldwide. Our goal is to build
+                    long-term relationships by delivering quality, trust, and value to
+                    our clients across the globe.
                 </p>
             </section>
 
