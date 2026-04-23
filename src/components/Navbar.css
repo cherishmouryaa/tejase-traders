@@ -1,4 +1,45 @@
-/* NAVBAR */
+/* ================= TICKER ================= */
+
+.ticker {
+    width: 100%;
+    background: #06271d;
+    color: white;
+    overflow: hidden;
+
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+
+    height: 36px;
+}
+
+/* TRACK */
+.ticker-track {
+    display: inline-flex;
+    white-space: nowrap;
+    animation: tickerMove 20s linear infinite;
+}
+
+/* TEXT */
+.ticker-track span {
+    padding-right: 80px;
+    font-size: 14px;
+}
+
+/* ANIMATION */
+@keyframes tickerMove {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+}
+
+/* OPTIONAL PAUSE */
+.ticker:hover .ticker-track {
+    animation-play-state: paused;
+}
+
+
+/* ================= NAVBAR ================= */
+
 .navbar {
     background: #0b3d2e;
     color: white;
@@ -15,6 +56,7 @@
     align-items: center;
 }
 
+/* LOGO */
 .logo {
     display: flex;
     align-items: center;
@@ -26,7 +68,9 @@
     object-fit: contain;
     display: block;
 }
-/* MENU */
+
+/* ================= MENU ================= */
+
 .nav-menu {
     display: flex;
     list-style: none;
@@ -37,9 +81,7 @@
 /* NAV ITEMS */
 .nav-menu li {
     position: relative;
-    /* IMPORTANT */
     padding: 10px 0;
-    /* 🔥 removes hover gap */
 }
 
 /* LINKS */
@@ -57,17 +99,18 @@
     color: orange;
 }
 
+
 /* ================= DROPDOWN ================= */
 
-/* DROPDOWN BOX */
 .dropdown-menu {
     position: absolute;
     top: 100%;
-    /* 🔥 PERFECT ALIGN */
     left: 0;
+
     background: white;
     color: black;
     list-style: none;
+
     padding: 10px 0;
     border-radius: 10px;
     min-width: 180px;
@@ -77,11 +120,12 @@
     opacity: 0;
     visibility: hidden;
     transform: translateY(10px);
+
     transition: all 0.3s ease;
     z-index: 999;
 }
 
-/* SHOW DROPDOWN (PRO FIX) */
+/* SHOW DROPDOWN */
 .nav-menu li:hover .dropdown-menu,
 .dropdown-menu:hover {
     opacity: 1;
@@ -100,7 +144,6 @@
     display: block;
 }
 
-/* HOVER EFFECT */
 .dropdown-menu li:hover {
     background: #f5f5f5;
 }
@@ -108,6 +151,7 @@
 .dropdown-menu li a:hover {
     color: orange;
 }
+
 
 /* ================= MOBILE ================= */
 
@@ -118,6 +162,7 @@
 }
 
 @media (max-width: 768px) {
+
     .nav-menu {
         position: absolute;
         top: 70px;
@@ -137,10 +182,12 @@
         padding: 15px 0;
     }
 
+    /* MOBILE DROPDOWN */
     .dropdown-menu {
         position: static;
         background: #0b3d2e;
         box-shadow: none;
+
         opacity: 1;
         visibility: visible;
         transform: none;
@@ -154,7 +201,7 @@
         display: block;
     }
 
-    /* FORCE LOGO FIX */
+    /* LOGO FIX */
     .logo {
         display: flex;
         align-items: center;
@@ -166,9 +213,7 @@
         width: auto !important;
         max-width: 150px;
         display: block;
-    }
 
-    .logo img {
         background: white;
         padding: 5px;
         border-radius: 6px;
