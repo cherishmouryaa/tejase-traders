@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import "./Home.css";
 import { useNavigate } from "react-router-dom";
 
-/* SLIDES */
+/* HERO SLIDES */
 const slides = [
     "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce",
     "https://images.unsplash.com/photo-1518843875459-f738682238a6",
@@ -18,15 +18,16 @@ const slides = [
 function Home() {
 
     const navigate = useNavigate();
+
     const sliderRef = useRef(null);
 
     const [current, setCurrent] = useState(0);
 
-    /* TOUCH STATES */
     const [touchStart, setTouchStart] = useState(0);
     const [touchEnd, setTouchEnd] = useState(0);
 
-    /* PRELOAD IMAGES (IMPORTANT) */
+
+    /* PRELOAD NO FLICKER */
     useEffect(() => {
         slides.forEach(src => {
             const img = new Image();
@@ -34,16 +35,19 @@ function Home() {
         });
     }, []);
 
-    /* AUTO SLIDER */
+
+    /* AUTOSLIDE */
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrent(prev => (prev + 1) % slides.length);
-        }, 4000);
+        }, 5000);
 
         return () => clearInterval(interval);
+
     }, []);
 
-    /* TOUCH HANDLERS */
+
+    /* SWIPE */
     const handleTouchStart = (e) => {
         setTouchStart(e.targetTouches[0].clientX);
     };
@@ -53,6 +57,7 @@ function Home() {
     };
 
     const handleTouchEnd = () => {
+
         if (touchStart - touchEnd > 50) {
             setCurrent(prev => (prev + 1) % slides.length);
         }
@@ -60,24 +65,51 @@ function Home() {
         if (touchStart - touchEnd < -50) {
             setCurrent(prev => (prev - 1 + slides.length) % slides.length);
         }
+
     };
+
 
     /* PRODUCTS */
     const products = [
-        { id: "pomegranates", name: "Pomegranates", image: "/assets/products/pomegranates/pomegranates1.jpg" },
-        { id: "onions", name: "Onions", image: "/assets/products/onions/onions1.jpg" },
-        { id: "garlic", name: "Garlic", image: "/assets/products/garlic/garlic1.jpg" },
-        { id: "greenchilli", name: "Green Chilli", image: "/assets/products/mirchi/mirchi1.jpg" },
-        { id: "chicken", name: "Chicken", image: "/assets/products/chicken/chicken1.jpg" }
+        {
+            id: "pomegranates",
+            name: "Pomegranates",
+            image: "/assets/products/pomegranates/pomegranates1.jpg"
+        },
+        {
+            id: "onions",
+            name: "Onions",
+            image: "/assets/products/onions/onions1.jpg"
+        },
+        {
+            id: "garlic",
+            name: "Garlic",
+            image: "/assets/products/garlic/garlic1.jpg"
+        },
+        {
+            id: "greenchill",
+            name: "Red Chilli",
+            image: "/assets/products/mirchi/mirchi1.jpg"
+        },
+        {
+            id: "chicken",
+            name: "Chicken",
+            image: "/assets/products/chicken/chicken1.jpg"
+        }
     ];
 
-    /* PRODUCT SLIDER */
+
+    /* PRODUCT AUTOSCROLL */
     useEffect(() => {
+
         const slider = sliderRef.current;
+
         let scroll = 0;
 
         const autoSlide = () => {
+
             if (!slider) return;
+
             slider.scrollLeft += 0.7;
             scroll += 0.7;
 
@@ -85,11 +117,16 @@ function Home() {
                 slider.scrollLeft = 0;
                 scroll = 0;
             }
+
         };
 
         const interval = setInterval(autoSlide, 16);
+
         return () => clearInterval(interval);
+
     }, []);
+
+
 
     return (
         <div className="home">
@@ -102,55 +139,121 @@ function Home() {
                 onTouchEnd={handleTouchEnd}
             >
 
-                {/* SLIDES */}
                 {slides.map((slide, i) => (
+
                     <div
                         key={i}
-                        className={`hero-slide ${i === current ? "active" :
-                            i === (current - 1 + slides.length) % slides.length ? "prev" : ""
-                            }`} style={{ backgroundImage: `url(${slide})` }}
+                        className={`hero-slide ${i === current
+                            ? "active"
+                            :
+                            i === (current - 1 + slides.length) % slides.length
+                                ? "prev"
+                                :
+                                ""
+                            }`}
+                        style={{
+                            backgroundImage: `url(${slide})`
+                        }}
                     />
+
                 ))}
 
-                {/* OVERLAY TEXT */}
-                <div className="hero-overlay">
-                    <h1>GLOBAL EXPORT OF AGRI & POULTRY PRODUCTS</h1>
-                    <p>Fresh fruits, vegetables, spices and meat exported worldwide</p>
+                <div className="hero-overlay"></div>
 
-                    <button className="btn" onClick={() => {
-                        document.getElementById("products").scrollIntoView({ behavior: "smooth" });
-                    }}>
+
+                <div className="hero-content">
+
+                    <div className="hero-logo-box">
+                        <img
+                            src="/logo.png"
+                            alt="Tejase Traders"
+                        />
+                    </div>
+
+                    <h1>
+                        Global Export of Fresh & Perishable Goods
+                    </h1>
+
+                    <p>
+                        Delivering high-quality agricultural and poultry products worldwide with reliability and trust.
+                    </p>
+
+                    <button
+                        className="hero-btn"
+                        onClick={() => {
+                            document.getElementById("products")
+                                .scrollIntoView({
+                                    behavior: "smooth"
+                                });
+                        }}
+                    >
                         Explore Products
                     </button>
+
                 </div>
 
-                {/* ARROWS */}
-                <button className="arrow left" onClick={() =>
-                    setCurrent(prev => (prev - 1 + slides.length) % slides.length)
-                }>‹</button>
 
-                <button className="arrow right" onClick={() =>
-                    setCurrent(prev => (prev + 1) % slides.length)
-                }>›</button>
+                <button
+                    className="arrow left"
+                    onClick={() =>
+                        setCurrent(prev =>
+                            (prev - 1 + slides.length) % slides.length
+                        )
+                    }
+                >
+                    ‹
+                </button>
+
+
+                <button
+                    className="arrow right"
+                    onClick={() =>
+                        setCurrent(prev =>
+                            (prev + 1) % slides.length
+                        )
+                    }
+                >
+                    ›
+                </button>
 
             </div>
 
-            {/* PRODUCTS */}
+
+
             <section id="products" className="products-preview">
+
                 <h2>Our Products</h2>
 
                 <div className="slider" ref={sliderRef}>
+
                     {[...products, ...products].map((item, i) => (
-                        <div key={i} className="card" onClick={() => navigate(`/product/${item.id}`)}>
-                            <img src={item.image} alt={item.name} />
+
+                        <div
+                            key={i}
+                            className="card"
+                            onClick={() => navigate(`/product/${item.id}`)}
+                        >
+
+                            <img
+                                src={item.image}
+                                alt={item.name}
+                            />
+
                             <h3>{item.name}</h3>
+
                         </div>
+
                     ))}
+
                 </div>
+
             </section>
 
-            {/* HIGHLIGHTS */}
+
+
+
             <section className="highlights">
+
                 <div className="highlight-box">
                     <div className="highlight-icon">🌍</div>
                     <h3>Global Export</h3>
@@ -168,49 +271,53 @@ function Home() {
                     <h3>Fast Logistics</h3>
                     <p>Efficient delivery worldwide.</p>
                 </div>
-            </section>
-            
 
-            {/* ABOUT */}
+            </section>
+
+
+
             <section className="about-section">
+
                 <h2>About Our Business</h2>
 
                 <p>
-                    Tejase Traders Private Limited is a trusted exporter of high-quality
-                    agricultural and poultry products. We specialize in supplying fresh
-                    fruits, vegetables, spices, and meat products to international markets.
+                    Tejase Traders Private Limited is a trusted exporter
+                    of high-quality agricultural and poultry products.
                 </p>
 
                 <p>
-                    Our company follows strict quality control processes at every stage,
-                    from sourcing to packaging, ensuring that our products meet global
-                    standards. We work closely with farmers and suppliers to maintain
-                    freshness, hygiene, and consistency.
+                    We ensure quality sourcing, export packaging and
+                    timely global delivery with trust and reliability.
                 </p>
 
-                <p>
-                    With a strong logistics network and commitment to timely delivery,
-                    we ensure smooth and reliable exports worldwide. Our goal is to build
-                    long-term relationships by delivering quality, trust, and value to
-                    our clients across the globe.
-                </p>
             </section>
 
-            {/* CTA */}
+
+
             <section className="cta-banner">
+
                 <div className="cta-content">
                     <h2>Looking for Bulk Orders?</h2>
                     <h1>Contact Us Today</h1>
 
                     <div className="cta-box">
-                        <input type="text" placeholder="Enter your email" />
-                        <button>Submit</button>
+                        <input
+                            type="text"
+                            placeholder="Enter your email"
+                        />
+
+                        <button>
+                            Submit
+                        </button>
+
                     </div>
                 </div>
+
             </section>
 
         </div>
-    );
+    )
+
 }
 
 export default Home;
