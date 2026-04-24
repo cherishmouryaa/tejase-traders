@@ -29,7 +29,7 @@ const productsData = [
     },
     {
         id: "greenchilli",
-        title: "Green Chilli",
+        title: "RED Chilli",
         description: "Fresh green chillies with high export demand.",
         images: [
             "/assets/products/mirchi/mirchi1.jpg",

@@ -80,17 +80,17 @@ margin:0 auto 28px;
 padding:16px;
 
 /* more transparent */
-background:rgba(255,255,255,.06);
+background:rgba(255,255,255,.05);
 
-backdrop-filter:blur(3px);
+backdrop-filter:blur(4px);
 
 /* softer border */
-border:1px solid rgba(255,255,255,.04);
+border:1px solid rgba(255,255,255,.05);
 
 /* lighter shadow */
 box-shadow:0 4px 14px rgba(0,0,0,.10);
 
-opacity:.60;
+opacity:.50;
 }
 .hero-logo-box img{
 width:100%;
