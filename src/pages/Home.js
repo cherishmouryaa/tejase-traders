@@ -87,7 +87,7 @@ function Home() {
             image: "/assets/products/garlic/garlic1.jpg"
         },
         {
-            id: "greenchill",
+            id: "greenchilli",
             name: "Red Chilli",
             image: "/assets/products/mirchi/mirchi1.jpg"
         },
@@ -226,8 +226,7 @@ function Home() {
 
                 <div className="slider" ref={sliderRef}>
 
-                    {[...products, ...products].map((item, i) => (
-
+                    {products.map((item, i) => (
                         <div
                             key={i}
                             className="card"
