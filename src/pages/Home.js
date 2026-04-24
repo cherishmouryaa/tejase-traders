@@ -169,6 +169,7 @@ function Home() {
                     <p>Efficient delivery worldwide.</p>
                 </div>
             </section>
+            
 
             {/* ABOUT */}
             <section className="about-section">

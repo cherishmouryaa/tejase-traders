@@ -1,19 +1,65 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import "./Contact.css";
 
 function Contact() {
 
+    const location = useLocation();
+
+    const query = new URLSearchParams(
+        location.search
+    );
+
+    const product =
+        query.get("product") || "";
+
+    const defaultMessage =
+product
+? `Hello,
+
+I would like a quotation for ${product}.
+
+Please share:
+- Pricing
+- Minimum Order Quantity
+- Packaging Details
+- Shipping Information
+
+Thank you.`
+: "";
+
+
+
     const handleSubmit = (e) => {
+
         e.preventDefault();
 
-        const name = e.target.name.value;
-        const email = e.target.email.value;
-        const message = e.target.message.value;
+        const name =
+            e.target.name.value;
 
-        const mailtoLink = `mailto:tejasetraders@yahoo.com?subject=Inquiry from ${name}&body=${message} (${email})`;
+        const email =
+            e.target.email.value;
 
-        window.location.href = mailtoLink;
+        const message =
+            e.target.message.value;
+
+        const subject = product
+            ? `Quote Request for ${product}`
+            : `Inquiry from ${name}`;
+
+        const mailtoLink =
+`mailto:tejasetraders@yahoo.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+message + `
+
+From:
+${name}
+${email}`
+)}`;
+
+        window.location.href =
+            mailtoLink;
     };
+
 
     return (
         <div className="contact-page">
@@ -31,10 +77,14 @@ function Contact() {
 
                     <div className="info-block">
                         <h3>📍 Address</h3>
+
                         <p>
-                            Flat No 101, Gracious Residency,<br />
-                            Royal Colony, Beside BPCL Bunk,<br />
-                            Narsingi, Rangareddy,<br />
+                            Flat No 101, Gracious Residency,
+                            <br />
+                            Royal Colony, Beside BPCL Bunk,
+                            <br />
+                            Narsingi, Rangareddy,
+                            <br />
                             Telangana - 500089
                         </p>
 
@@ -65,25 +115,51 @@ function Contact() {
 
                 </div>
 
+
                 {/* RIGHT */}
                 <div className="contact-form">
 
                     <h2>Send Inquiry</h2>
 
                     <form onSubmit={handleSubmit}>
-                        <input name="name" type="text" placeholder="Your Name" required />
-                        <input name="email" type="email" placeholder="Your Email" required />
-                        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
 
-                        <button type="submit">Send Message</button>
+                        <input
+                            name="name"
+                            type="text"
+                            placeholder="Your Name"
+                            required
+                        />
+
+                        <input
+                            name="email"
+                            type="email"
+                            placeholder="Your Email"
+                            required
+                        />
+
+                        <textarea
+                            name="message"
+                            rows="5"
+                            required
+                            defaultValue={defaultMessage}
+                            placeholder="Your Message"
+                        >
+                        </textarea>
+
+                        <button type="submit">
+                            Send Message
+                        </button>
+
                     </form>
 
                 </div>
 
             </div>
 
+
             {/* MAP */}
             <div className="map">
+
                 <iframe
                     title="location"
                     src="https://www.google.com/maps?q=Narsingi+Telangana&output=embed"
@@ -92,6 +168,7 @@ function Contact() {
                     style={{ border: 0 }}
                     loading="lazy"
                 ></iframe>
+
             </div>
 
         </div>

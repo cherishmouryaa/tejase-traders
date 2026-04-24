@@ -1,22 +1,24 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import productsData from "../data/productsData";
 import "./ProductDetail.css";
 
 function ProductDetail() {
     const { name } = useParams();
+    const navigate = useNavigate();
 
-    
-    const product = productsData.find(
-    p => p.id === name
-);
+    const product = productsData.find(p => p.id === name);
 
     const [index, setIndex] = useState(0);
 
+    /* SAFETY CHECK */
     useEffect(() => {
+        if (!product) return;
+
         const interval = setInterval(() => {
             setIndex(prev => (prev + 1) % product.images.length);
         }, 3000);
+
         return () => clearInterval(interval);
     }, [product]);
 
@@ -51,6 +53,27 @@ function ProductDetail() {
                 <div className="info-box">
 
                     <p className="desc">{product.description}</p>
+
+                    {/* ✅ BUTTON (correct place) */}
+                    <button
+                        className="quote-btn"
+                        onClick={() =>
+                            navigate(
+                                `/contact?product=${encodeURIComponent(product.title)}`
+                            )
+                        }
+                    >
+                        Get Export Quote
+                    </button>
+
+                    {/* ✅ EXPORT DETAILS */}
+                    <div className="product-extra">
+                        <p><strong>Minimum Order:</strong> 1 Ton</p>
+                        <p><strong>Packaging:</strong> Standard Export Packaging</p>
+                        <p><strong>Shelf Life:</strong> 15–30 Days</p>
+                        <p><strong>Origin:</strong> India</p>
+                        <p><strong>Export Availability:</strong> Worldwide</p>
+                    </div>
 
                     <h3>Export Details</h3>
                     <ul>

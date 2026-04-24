@@ -2,67 +2,149 @@ import React from "react";
 import "./About.css";
 
 function About() {
-    return (
-        <div className="about-page">
 
-            <h1>About Tejase Traders</h1>
+return (
+<div className="about-page">
 
-            <p className="intro">
-                Tejase Traders is a growing export company based in India, specializing in 
-                supplying high-quality agricultural and poultry products to international markets. 
-                Our focus is on delivering fresh, hygienic, and premium-grade products with 
-                consistency and reliability.
-            </p>
+{/* HERO */}
+<section className="about-hero">
+<h1>About Tejase Traders</h1>
+<p>
+Trusted Global Export Partner for Agricultural
+and Poultry Products
+</p>
+</section>
 
-            <div className="about-section">
-                <h2>🌍 Our Mission</h2>
-                <p>
-                    To provide world-class export quality products from India while maintaining 
-                    global standards in safety, freshness, and customer satisfaction. We aim to 
-                    build long-term relationships with our clients across the globe.
-                </p>
-            </div>
 
-            <div className="about-section">
-                <h2>🚀 Our Vision</h2>
-                <p>
-                    To become a trusted global exporter known for quality, transparency, and 
-                    efficient supply chain management in agricultural and food products.
-                </p>
-            </div>
+{/* INTRO */}
+<section className="company-intro">
+<h2>Who We Are</h2>
 
-            <div className="about-section">
-                <h2>📦 What We Export</h2>
-                <ul>
-                    <li>Fresh Fruits (Pomegranates, etc.)</li>
-                    <li>Vegetables (Onions, Garlic, Chillies)</li>
-                    <li>Spices (Pepper, Dry Products)</li>
-                    <li>Poultry Products (Chicken)</li>
-                    <li>Seafood (Prawns)</li>
-                </ul>
-            </div>
+<p>
+Tejase Traders Private Limited is a trusted exporter
+specializing in fruits, vegetables, spices and poultry
+products for international markets.
+</p>
 
-            <div className="about-section">
-                <h2>✅ Why Choose Us</h2>
-                <ul>
-                    <li>Strict quality inspection and grading</li>
-                    <li>Hygienic processing and packaging</li>
-                    <li>Timely delivery and logistics support</li>
-                    <li>Competitive pricing for bulk orders</li>
-                    <li>Customer-focused approach</li>
-                </ul>
-            </div>
+<p>
+We combine quality sourcing, strong logistics and
+global export standards to deliver reliability
+to our clients worldwide.
+</p>
+</section>
 
-            <div className="about-section">
-                <h2>📍 Our Presence</h2>
-                <p>
-                    Based in India, we serve clients across the Middle East, Asia, and other 
-                    international markets with reliable export solutions.
-                </p>
-            </div>
 
-        </div>
-    );
+
+{/* FEATURE CARDS */}
+<section className="feature-grid">
+
+<div className="feature-card">
+<div className="icon">🌍</div>
+<h3>Global Export Reach</h3>
+<p>Serving international markets with quality products.</p>
+</div>
+
+<div className="feature-card">
+<div className="icon">✔</div>
+<h3>Certified Quality</h3>
+<p>Strict inspection and export-grade standards.</p>
+</div>
+
+<div className="feature-card">
+<div className="icon">📦</div>
+<h3>Secure Packaging</h3>
+<p>Safe packaging for freshness and protection.</p>
+</div>
+
+<div className="feature-card">
+<div className="icon">🚚</div>
+<h3>Strong Logistics</h3>
+<p>Reliable worldwide supply chain solutions.</p>
+</div>
+
+<div className="feature-card">
+<div className="icon">⏱</div>
+<h3>On-Time Delivery</h3>
+<p>Timely shipments with dependable execution.</p>
+</div>
+
+<div className="feature-card">
+<div className="icon">🤝</div>
+<h3>Trusted Partnerships</h3>
+<p>Building long-term client relationships.</p>
+</div>
+
+</section>
+
+
+
+{/* WHY CHOOSE US */}
+<section className="why-us">
+
+<div className="left-box">
+
+<div className="info-card">
+<h2>Quality & Packaging</h2>
+<p>
+Strict quality control and export-grade packaging
+ensure freshness, durability and compliance.
+</p>
+</div>
+
+<div className="info-card">
+<h2>Customer Commitment</h2>
+<p>
+We prioritize transparency, consistency and
+long-term customer satisfaction.
+</p>
+</div>
+
+<div className="info-card">
+<h2>Sustainable Sourcing</h2>
+<p>
+We work with trusted suppliers for responsible
+and consistent sourcing.
+</p>
+</div>
+
+</div>
+
+
+<div className="right-box">
+
+<div className="mini-card">🚚 Strong Logistics</div>
+<div className="mini-card">📦 Secure Packaging</div>
+<div className="mini-card">⏱ On-Time Delivery</div>
+<div className="mini-card">🤝 Trusted Business</div>
+
+</div>
+
+</section>
+
+
+
+{/* STATS */}
+<section className="about-stats">
+
+<div>
+<h2>50+</h2>
+<p>Global Clients</p>
+</div>
+
+<div>
+<h2>10+</h2>
+<p>Countries Served</p>
+</div>
+
+<div>
+<h2>100+</h2>
+<p>Shipments Delivered</p>
+</div>
+
+</section>
+
+</div>
+);
 }
 
 export default About;
