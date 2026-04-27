@@ -6,7 +6,6 @@ overflow-x:hidden;
 }
 
 
-
 /* ================= HERO ================= */
 
 .hero{
@@ -43,14 +42,13 @@ z-index:1;
 }
 
 
-
 /* overlay */
 .hero-overlay{
 position:absolute;
 inset:0;
 background:
 linear-gradient(
-rgba(0,0,0,.50),
+rgba(0,0,0,.38),
 rgba(0,0,0,.35)
 );
 backdrop-filter:blur(2px);
@@ -72,42 +70,29 @@ max-width:1200px;
 }
 
 
+/* ================= LOGO (UPDATED NO FRAME) ================= */
 
-/* logo panel fixed */
 .hero-logo-box{
-width:240px;
+width:220px;
 margin:0 auto 28px;
-padding:16px;
+padding:0;
 
-/* more transparent */
-background:rgba(255,255,255,.05);
-
-backdrop-filter:blur(4px);
-
-/* softer border */
-border:1px solid rgba(255,255,255,.05);
-
-/* lighter shadow */
-box-shadow:0 4px 14px rgba(0,0,0,.10);
-
-opacity:.50;
+background:none;
+border:none;
+box-shadow:none;
+backdrop-filter:none;
 }
+
 .hero-logo-box img{
 width:100%;
 display:block;
-
-opacity:.82;
+opacity:.88;
 filter:brightness(1.08);
 }
 
-.hero-logo-box img{
-width:100%;
-display:block;
-}
 
 
-
-/* title fixed */
+/* title */
 .hero-content h1{
 font-size:58px;
 line-height:1.08;
@@ -354,8 +339,8 @@ height:520px;
 }
 
 .hero-logo-box{
-width:180px;
-padding:12px;
+width:170px;
+padding:0;
 margin-bottom:18px;
 }
 

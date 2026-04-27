@@ -165,7 +165,7 @@ function Home() {
 
                     <div className="hero-logo-box">
                         <img
-                            src="/logo.png"
+                            src="/logo-transparent.png"
                             alt="Tejase Traders"
                         />
                     </div>
