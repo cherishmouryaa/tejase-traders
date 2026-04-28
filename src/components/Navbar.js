@@ -49,7 +49,6 @@ function Navbar() {
                                     <li><Link to="/category/vegetables">Vegetables</Link></li>
                                     <li><Link to="/category/spices">Spices</Link></li>
                                     <li><Link to="/category/meat">Meat</Link></li>
-                                    <li><Link to="/category/seafood">Seafood</Link></li>
                                 </ul>
                             )}
                         </li>

@@ -64,15 +64,7 @@ const productsData = [
             "/assets/products/chicken/chicken2.jpg"
         ]
     },
-    {
-        id: "prawns",
-        title: "Prawns",
-        description: "Fresh export-quality seafood.",
-        images: [
-            "/assets/products/prawns/prawns1.jpg",
-            "/assets/products/prawns/prawns2.jpg"
-        ]
-    }
+    
 ];
 
 export default productsData;
