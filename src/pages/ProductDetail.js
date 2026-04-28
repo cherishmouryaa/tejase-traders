@@ -92,12 +92,7 @@ function ProductDetail() {
                         <li>✔ Freshness guaranteed</li>
                     </ul>
 
-                    <h3>Export Statistics</h3>
-                    <ul>
-                        <li>🌍 Export Countries: 25+</li>
-                        <li>📦 Monthly Supply: 500+ Tons</li>
-                        <li>🚢 Shipping: Sea & Air</li>
-                    </ul>
+                   
 
                 </div>
             </div>

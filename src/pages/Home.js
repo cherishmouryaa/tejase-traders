@@ -87,8 +87,8 @@ function Home() {
             image: "/assets/products/garlic/garlic1.jpg"
         },
         {
-            id: "greenchilli",
-            name: "Red Chilli",
+            id: "greenchill",
+            name: "Chilli",
             image: "/assets/products/mirchi/mirchi1.jpg"
         },
         {
@@ -180,12 +180,7 @@ function Home() {
 
                     <button
                         className="hero-btn"
-                        onClick={() => {
-                            document.getElementById("products")
-                                .scrollIntoView({
-                                    behavior: "smooth"
-                                });
-                        }}
+                        onClick={() => navigate("/products")}
                     >
                         Explore Products
                     </button>
@@ -226,7 +221,8 @@ function Home() {
 
                 <div className="slider" ref={sliderRef}>
 
-                    {products.map((item, i) => (
+                    {[...products, ...products].map((item, i) => (
+
                         <div
                             key={i}
                             className="card"

@@ -6,10 +6,10 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Products from "./pages/Products";
 import CategoryPage from "./pages/CategoryPage";
-import Certificates from "./pages/Certificates";
 import Blogs from "./pages/Blogs";
 import Contact from "./pages/Contact";
 import ProductDetail from "./pages/ProductDetail";
+import Certificates from "./pages/Certificates";
 
 function App() {
   return (
@@ -27,6 +27,7 @@ function App() {
         <Route path="/certificates" element={<Certificates />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/certificates" element={<Certificates />} />
 
         {/* PRODUCT DETAILS */}
         <Route path="/product/:name" element={<ProductDetail />} />

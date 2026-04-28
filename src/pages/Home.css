@@ -60,7 +60,7 @@ z-index:3;
 /* hero content */
 .hero-content{
 position:absolute;
-top:54%;
+top:50%;
 left:50%;
 transform:translate(-50%,-50%);
 text-align:center;
@@ -72,11 +72,11 @@ max-width:1200px;
 
 /* ================= LOGO (UPDATED NO FRAME) ================= */
 
+/* framed premium logo */
 .hero-logo-box{
-width:220px;
-margin:0 auto 28px;
+width:250px;
+margin:0 auto 18px;
 padding:0;
-
 background:none;
 border:none;
 box-shadow:none;
@@ -86,10 +86,9 @@ backdrop-filter:none;
 .hero-logo-box img{
 width:100%;
 display:block;
-opacity:.88;
+opacity:.65;
 filter:brightness(1.08);
 }
-
 
 
 /* title */
@@ -339,7 +338,7 @@ height:520px;
 }
 
 .hero-logo-box{
-width:170px;
+width:230px;
 padding:0;
 margin-bottom:18px;
 }
