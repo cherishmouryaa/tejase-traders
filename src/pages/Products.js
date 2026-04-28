@@ -9,6 +9,16 @@ function Products() {
 
     return (
         <div className="products-page">
+            <button
+                className="back-btn"
+                onClick={() => window.history.back()}
+            ></button>
+            <button
+                className="back-btn"
+                onClick={() => window.history.back()}
+            >
+                ← Back
+            </button>
 
             <h1>Our Export Products</h1>
 

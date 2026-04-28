@@ -87,7 +87,7 @@ function Home() {
             image: "/assets/products/garlic/garlic1.jpg"
         },
         {
-            id: "greenchill",
+            id: "greenchilli",
             name: "Chilli",
             image: "/assets/products/mirchi/mirchi1.jpg"
         },
