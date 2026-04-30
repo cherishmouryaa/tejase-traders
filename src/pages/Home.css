@@ -9,14 +9,14 @@ overflow-x:hidden;
 /* ================= HERO ================= */
 
 .hero{
-height:84vh;
+height:82vh;
 position:relative;
 overflow:hidden;
 background:#000;
 }
 
 
-/* no flicker crossfade */
+/* slides */
 .hero-slide{
 position:absolute;
 top:0;
@@ -27,8 +27,6 @@ background-size:cover;
 background-position:center;
 opacity:0;
 transition:opacity 1.2s ease-in-out;
-will-change:opacity;
-transform:translateZ(0);
 }
 
 .hero-slide.active{
@@ -46,73 +44,52 @@ z-index:1;
 .hero-overlay{
 position:absolute;
 inset:0;
-background:
-linear-gradient(
-rgba(0,0,0,.38),
-rgba(0,0,0,.35)
-);
-backdrop-filter:blur(2px);
+background:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.35));
 z-index:3;
 }
 
 
-
-/* hero content */
+/* content */
 .hero-content{
 position:absolute;
-top:50%;
+top:45%;
 left:50%;
 transform:translate(-50%,-50%);
 text-align:center;
 z-index:5;
 width:90%;
-max-width:1200px;
+max-width:1100px;
 }
 
 
-/* ================= LOGO (UPDATED NO FRAME) ================= */
-
-/* framed premium logo */
+/* logo */
 .hero-logo-box{
-width:250px;
+width:240px;
 margin:0 auto 18px;
-padding:0;
-background:none;
-border:none;
-box-shadow:none;
-backdrop-filter:none;
 }
 
 .hero-logo-box img{
 width:100%;
-display:block;
-opacity:.65;
-filter:brightness(1.08);
+opacity:.7;
 }
 
 
 /* title */
 .hero-content h1{
-font-size:58px;
-line-height:1.08;
+font-size:54px;
+line-height:1.1;
 font-weight:700;
-max-width:1150px;
-margin:0 auto 22px;
 color:white;
-letter-spacing:-1px;
-text-shadow:0 3px 8px rgba(0,0,0,.35);
+margin-bottom:20px;
 }
 
 
 /* subtitle */
 .hero-content p{
 font-size:20px;
-line-height:1.5;
-max-width:780px;
-margin:0 auto 30px;
-color:#fff;
+color:white;
+margin-bottom:25px;
 }
-
 
 
 /* button */
@@ -120,19 +97,18 @@ color:#fff;
 background:#f4a300;
 border:none;
 color:white;
-font-size:22px;
+font-size:20px;
 font-weight:600;
-padding:16px 42px;
+padding:14px 34px;
 border-radius:10px;
 cursor:pointer;
-box-shadow:0 8px 20px rgba(0,0,0,.18);
 transition:.3s;
+margin-top:18px;
 }
 
 .hero-btn:hover{
-transform:translateY(-4px);
+transform:translateY(-3px);
 }
-
 
 
 /* arrows */
@@ -140,29 +116,22 @@ transform:translateY(-4px);
 position:absolute;
 top:50%;
 transform:translateY(-50%);
-width:50px;
-height:70px;
+background:rgba(0,0,0,.5);
 border:none;
-background:rgba(0,0,0,.42);
 color:white;
-font-size:38px;
+font-size:30px;
+padding:10px 15px;
 cursor:pointer;
 z-index:8;
-transition:.3s;
-}
-
-.arrow:hover{
-background:rgba(0,0,0,.65);
 }
 
 .arrow.left{
-left:30px;
+left:20px;
 }
 
 .arrow.right{
-right:30px;
+right:20px;
 }
-
 
 
 /* ================= PRODUCTS ================= */
@@ -182,8 +151,7 @@ margin-bottom:30px;
 .slider{
 display:flex;
 overflow-x:auto;
-scroll-behavior:smooth;
-gap:22px;
+gap:20px;
 }
 
 .slider::-webkit-scrollbar{
@@ -212,9 +180,7 @@ object-fit:cover;
 
 .card h3{
 padding:15px;
-font-size:20px;
 }
-
 
 
 /* ================= HIGHLIGHTS ================= */
@@ -224,39 +190,25 @@ display:flex;
 justify-content:center;
 gap:40px;
 padding:70px 20px;
-
-background:
-linear-gradient(
-135deg,
-#0f3d2e,
-#14532d,
-#064e3b
-);
-
+background:linear-gradient(135deg,#0f3d2e,#14532d,#064e3b);
 flex-wrap:wrap;
 }
 
 .highlight-box{
 background:white;
-padding:35px 25px;
+padding:30px;
 width:260px;
 text-align:center;
 border-radius:15px;
 box-shadow:0 10px 25px rgba(0,0,0,.07);
-transition:.3s;
-}
-
-.highlight-box:hover{
-transform:translateY(-8px);
 }
 
 .highlight-icon{
-font-size:38px;
-margin-bottom:12px;
+font-size:40px;
+margin-bottom:10px;
 }
 
 .highlight-box h3{
-font-size:22px;
 margin-bottom:10px;
 color:#0f3d2e;
 }
@@ -266,29 +218,24 @@ color:#555;
 }
 
 
-
 /* ================= ABOUT ================= */
 
 .about-section{
 padding:50px 20px;
 text-align:center;
-background:#fff;
 }
 
 .about-section h2{
-font-size:34px;
+font-size:32px;
 color:#0f3d2e;
 margin-bottom:20px;
 }
 
 .about-section p{
-max-width:850px;
-margin:10px auto;
-font-size:17px;
-line-height:1.7;
-color:#374151;
+max-width:800px;
+margin:auto;
+color:#444;
 }
-
 
 
 /* ================= CTA ================= */
@@ -296,37 +243,45 @@ color:#374151;
 .cta-banner{
 background:#1f2937;
 color:white;
-padding:60px 20px;
+padding:35px 20px; /* reduced from 60px */
 text-align:center;
 }
 
 .cta-content h2{
-font-size:30px;
-margin-bottom:10px;
+font-size:18px; /* smaller */
+margin-bottom:8px;
+opacity:.8;
 }
 
 .cta-content h1{
-font-size:46px;
-margin-bottom:25px;
+font-size:28px; /* reduced from 40+ */
+margin-bottom:18px;
+}
+
+.cta-box{
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
 }
 
 .cta-box input{
-padding:14px;
-width:280px;
+padding:10px;
+width:240px;
+border-radius:6px;
 border:none;
-border-radius:8px;
+font-size:14px;
 }
 
 .cta-box button{
-padding:14px 26px;
-margin-left:10px;
-border:none;
+padding:10px 18px;
 background:#f4a300;
+border:none;
 color:white;
-border-radius:8px;
+border-radius:6px;
+font-size:14px;
 cursor:pointer;
 }
-
 
 
 /* ================= MOBILE ================= */
@@ -337,51 +292,21 @@ cursor:pointer;
 height:520px;
 }
 
-.hero-logo-box{
-width:230px;
-padding:0;
-margin-bottom:18px;
-}
-
 .hero-content{
-top:56%;
+top:48%;
 }
 
 .hero-content h1{
-font-size:36px;
-line-height:1.15;
+font-size:34px;
 }
 
 .hero-content p{
-font-size:17px;
+font-size:16px;
 }
 
 .hero-btn{
-font-size:18px;
-padding:13px 28px;
-}
-
-.arrow{
-font-size:24px;
-height:50px;
-width:36px;
-}
-
-.products-preview h2{
-font-size:28px;
-}
-
-.highlights{
-flex-direction:column;
-align-items:center;
-}
-
-.cta-content h1{
-font-size:30px;
-}
-
-.cta-box input{
-width:220px;
+font-size:16px;
+padding:12px 24px;
 }
 
 }

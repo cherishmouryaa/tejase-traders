@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./Home.css";
 import { useNavigate } from "react-router-dom";
+import productsData from "../data/productsData";
 
 /* HERO SLIDES */
 const slides = [
@@ -18,16 +19,13 @@ const slides = [
 function Home() {
 
     const navigate = useNavigate();
-
     const sliderRef = useRef(null);
 
     const [current, setCurrent] = useState(0);
-
     const [touchStart, setTouchStart] = useState(0);
     const [touchEnd, setTouchEnd] = useState(0);
 
-
-    /* PRELOAD NO FLICKER */
+    /* PRELOAD */
     useEffect(() => {
         slides.forEach(src => {
             const img = new Image();
@@ -35,17 +33,13 @@ function Home() {
         });
     }, []);
 
-
     /* AUTOSLIDE */
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrent(prev => (prev + 1) % slides.length);
         }, 5000);
-
         return () => clearInterval(interval);
-
     }, []);
-
 
     /* SWIPE */
     const handleTouchStart = (e) => {
@@ -57,57 +51,27 @@ function Home() {
     };
 
     const handleTouchEnd = () => {
-
         if (touchStart - touchEnd > 50) {
             setCurrent(prev => (prev + 1) % slides.length);
         }
-
         if (touchStart - touchEnd < -50) {
             setCurrent(prev => (prev - 1 + slides.length) % slides.length);
         }
-
     };
 
-
-    /* PRODUCTS */
-    const products = [
-        {
-            id: "pomegranates",
-            name: "Pomegranates",
-            image: "/assets/products/pomegranates/pomegranates1.jpg"
-        },
-        {
-            id: "onions",
-            name: "Onions",
-            image: "/assets/products/onions/onions1.jpg"
-        },
-        {
-            id: "garlic",
-            name: "Garlic",
-            image: "/assets/products/garlic/garlic1.jpg"
-        },
-        {
-            id: "greenchilli",
-            name: "Chilli",
-            image: "/assets/products/mirchi/mirchi1.jpg"
-        },
-        {
-            id: "chicken",
-            name: "Chicken",
-            image: "/assets/products/chicken/chicken1.jpg"
-        }
-    ];
-
+    /* ✅ FIXED PRODUCTS (AUTO FROM productsData) */
+    const products = productsData.map(p => ({
+        id: p.id,
+        name: p.title,
+        image: p.images[0]
+    }));
 
     /* PRODUCT AUTOSCROLL */
     useEffect(() => {
-
         const slider = sliderRef.current;
-
         let scroll = 0;
 
         const autoSlide = () => {
-
             if (!slider) return;
 
             slider.scrollLeft += 0.7;
@@ -117,16 +81,12 @@ function Home() {
                 slider.scrollLeft = 0;
                 scroll = 0;
             }
-
         };
 
         const interval = setInterval(autoSlide, 16);
-
         return () => clearInterval(interval);
 
     }, []);
-
-
 
     return (
         <div className="home">
@@ -140,39 +100,23 @@ function Home() {
             >
 
                 {slides.map((slide, i) => (
-
                     <div
                         key={i}
-                        className={`hero-slide ${i === current
-                            ? "active"
-                            :
-                            i === (current - 1 + slides.length) % slides.length
-                                ? "prev"
-                                :
-                                ""
+                        className={`hero-slide ${i === current ? "active" :
+                                i === (current - 1 + slides.length) % slides.length ? "prev" : ""
                             }`}
-                        style={{
-                            backgroundImage: `url(${slide})`
-                        }}
+                        style={{ backgroundImage: `url(${slide})` }}
                     />
-
                 ))}
 
                 <div className="hero-overlay"></div>
 
-
                 <div className="hero-content">
-
                     <div className="hero-logo-box">
-                        <img
-                            src="/logo-transparent.png"
-                            alt="Tejase Traders"
-                        />
+                        <img src="/logo-transparent.png" alt="Tejase Traders" />
                     </div>
 
-                    <h1>
-                        Global Export of Fresh & Perishable Goods
-                    </h1>
+                    <h1>Global Export of Fresh & Perishable Goods</h1>
 
                     <p>
                         Delivering high-quality agricultural and poultry products worldwide with reliability and trust.
@@ -184,71 +128,43 @@ function Home() {
                     >
                         Explore Products
                     </button>
-
                 </div>
 
-
-                <button
-                    className="arrow left"
-                    onClick={() =>
-                        setCurrent(prev =>
-                            (prev - 1 + slides.length) % slides.length
-                        )
-                    }
-                >
+                <button className="arrow left"
+                    onClick={() => setCurrent(prev => (prev - 1 + slides.length) % slides.length)}>
                     ‹
                 </button>
 
-
-                <button
-                    className="arrow right"
-                    onClick={() =>
-                        setCurrent(prev =>
-                            (prev + 1) % slides.length
-                        )
-                    }
-                >
+                <button className="arrow right"
+                    onClick={() => setCurrent(prev => (prev + 1) % slides.length)}>
                     ›
                 </button>
 
             </div>
 
-
-
+            {/* PRODUCTS */}
             <section id="products" className="products-preview">
-
                 <h2>Our Products</h2>
 
                 <div className="slider" ref={sliderRef}>
-
                     {[...products, ...products].map((item, i) => (
-
                         <div
                             key={i}
                             className="card"
                             onClick={() => navigate(`/product/${item.id}`)}
                         >
-
                             <img
                                 src={item.image}
                                 alt={item.name}
                             />
-
                             <h3>{item.name}</h3>
-
                         </div>
-
                     ))}
-
                 </div>
-
             </section>
 
-
-
-
+            {/* HIGHLIGHTS */}
             <section className="highlights">
-
                 <div className="highlight-box">
                     <div className="highlight-icon">🌍</div>
                     <h3>Global Export</h3>
@@ -266,13 +182,10 @@ function Home() {
                     <h3>Fast Logistics</h3>
                     <p>Efficient delivery worldwide.</p>
                 </div>
-
             </section>
 
-
-
+            {/* ABOUT */}
             <section className="about-section">
-
                 <h2>About Our Business</h2>
 
                 <p>
@@ -284,35 +197,23 @@ function Home() {
                     We ensure quality sourcing, export packaging and
                     timely global delivery with trust and reliability.
                 </p>
-
             </section>
 
-
-
+            {/* CTA */}
             <section className="cta-banner">
-
                 <div className="cta-content">
                     <h2>Looking for Bulk Orders?</h2>
                     <h1>Contact Us Today</h1>
 
                     <div className="cta-box">
-                        <input
-                            type="text"
-                            placeholder="Enter your email"
-                        />
-
-                        <button>
-                            Submit
-                        </button>
-
+                        <input type="text" placeholder="Enter your email" />
+                        <button>Submit</button>
                     </div>
                 </div>
-
             </section>
 
         </div>
-    )
-
+    );
 }
 
 export default Home;

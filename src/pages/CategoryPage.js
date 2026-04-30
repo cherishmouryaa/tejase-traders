@@ -10,16 +10,28 @@ function CategoryPage() {
 
     let filtered = [];
 
+    // ✅ UPDATED LOGIC (ONLY CHANGE)
     if (type === "fruits") {
-        filtered = productsData.filter(p => p.id === "pomegranates" || p.id === "lemons");
+        filtered = productsData.filter(
+            p =>
+                p.id === "pomegranates" ||
+                p.id === "lemons" ||
+                p.id === "coconut"   // ✅ ADDED COCONUT
+        );
     } else if (type === "vegetables") {
-        filtered = productsData.filter(p => p.id === "onions" || p.id === "garlic");
+        filtered = productsData.filter(
+            p => p.id === "onions" || p.id === "garlic"
+        );
     } else if (type === "spices") {
-        filtered = productsData.filter(p => p.id === "greenchilli" || p.id === "pepper");
+        filtered = productsData.filter(
+            p => p.id === "greenchilli" || p.id === "pepper"
+        );
     } else if (type === "meat") {
-        filtered = productsData.filter(p => p.id === "chicken");
+        filtered = productsData.filter(
+            p => p.id === "chicken"
+        );
     } else if (type === "seafood") {
-        filtered = productsData.filter(p => p.id === "prawns");
+        filtered = []; // prawns removed as you said
     }
 
     return (

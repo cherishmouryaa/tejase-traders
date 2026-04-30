@@ -55,3 +55,14 @@ transition:.3s;
 transform:translateY(-2px);
 background:#14532d;
 }
+.blog-link{
+display:inline-block;
+margin-top:10px;
+color:#f4a300;
+font-weight:600;
+text-decoration:none;
+}
+
+.blog-link:hover{
+text-decoration:underline;
+}

@@ -5,24 +5,29 @@ function Blogs() {
 
     const blogs = [
         {
-            title: "India’s Export Growth in 2025",
-            content: "India’s exports are projected to grow steadily due to strong demand in agricultural, pharmaceutical, and manufacturing sectors. Government initiatives like 'Make in India' and improved logistics infrastructure are supporting exporters to expand globally."
+            title: "India’s Agricultural Export Growth",
+            content: "India’s agricultural exports are growing rapidly due to global demand for fruits, vegetables, and spices.",
+            link: "https://www.google.com/search?q=india+agriculture+export+growth+news"
         },
         {
-            title: "Why Indian Agricultural Products Are in High Demand",
-            content: "Indian products such as onions, pomegranates, spices, and rice are highly demanded across Middle East, Europe, and Asia. Competitive pricing, quality, and large-scale production give India a strong export advantage."
+            title: "Demand for Indian Fruits & Vegetables",
+            content: "Indian onions, lemons, and pomegranates are highly demanded in Middle East and European markets.",
+            link: "https://www.google.com/search?q=india+fruit+vegetable+export+news"
         },
         {
-            title: "Future of Indian Export Industry",
-            content: "India aims to become a $2 trillion export economy by 2030. Growth is expected in food processing, seafood, and organic products. Digital trade and supply chain improvements will further boost exports."
+            title: "India Leads Global Spice Exports",
+            content: "India remains the world’s largest exporter of spices like chilli and black pepper.",
+            link: "https://www.google.com/search?q=india+spice+export+news"
         },
         {
-            title: "Top Export Destinations for India",
-            content: "Major export destinations include UAE, USA, China, Bangladesh, and Saudi Arabia. Agricultural exports are especially strong in Gulf countries due to proximity and demand."
+            title: "Coconut Export Opportunities",
+            content: "Coconut exports are rising due to demand for coconut water, oil, and processed products.",
+            link: "https://www.google.com/search?q=india+coconut+export+news"
         },
         {
-            title: "Role of Cold Chain in Export Success",
-            content: "Maintaining freshness in perishable goods like fruits, vegetables, and poultry is critical. Cold storage and efficient logistics ensure quality is preserved during transportation."
+            title: "Cold Chain Importance in Exports",
+            content: "Cold chain logistics is essential to maintain freshness of perishable export goods.",
+            link: "https://www.google.com/search?q=cold+chain+export+india+news"
         }
     ];
 
@@ -36,6 +41,15 @@ function Blogs() {
                     <div key={index} className="blog-card">
                         <h2>{blog.title}</h2>
                         <p>{blog.content}</p>
+
+                        <a 
+                            href={blog.link}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="blog-link"
+                        >
+                            View Latest News →
+                        </a>
                     </div>
                 ))}
             </div>

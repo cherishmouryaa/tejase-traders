@@ -1,10 +1,11 @@
 const productsData = [
 
 {
-id:"pomegranates",
-title:"Pomegranates",
-description:"Premium export quality pomegranates rich in antioxidants.",
-images:[
+id: "pomegranates",
+title: "Pomegranates",
+category: "fruits",
+description: "Premium export quality pomegranates rich in antioxidants.",
+images: [
 "/assets/products/pomegranates/pomegranates1.jpg",
 "/assets/products/pomegranates/pomegranates3.jpg",
 "/assets/products/pomegranates/pomegranates1.jpg"
@@ -22,6 +23,7 @@ shipping:"Sea & Air Freight"
 {
 id:"onions",
 title:"Onions",
+category:"vegetables",
 description:"High-quality onions with long shelf life.",
 images:[
 "/assets/products/onions/onions1.jpg",
@@ -40,6 +42,7 @@ shipping:"Container Export"
 {
 id:"garlic",
 title:"Garlic",
+category:"vegetables",
 description:"Fresh Indian garlic with strong flavor.",
 images:[
 "/assets/products/garlic/garlic1.jpg",
@@ -58,6 +61,7 @@ shipping:"Sea Export"
 {
 id:"greenchilli",
 title:"Chilli",
+category:"spices",
 description:"Premium export quality red chillies.",
 images:[
 "/assets/products/mirchi/mirchi1.jpg",
@@ -76,6 +80,7 @@ shipping:"Bulk Export"
 {
 id:"pepper",
 title:"Black Pepper",
+category:"spices",
 description:"Premium Indian black pepper.",
 images:[
 "/assets/products/pepper/pepper1.jpg",
@@ -94,6 +99,7 @@ shipping:"Global Export"
 {
 id:"lemons",
 title:"Lemons",
+category:"fruits",
 description:"Fresh lemons with high juice content.",
 images:[
 "/assets/products/lemons/lemons1.jpg",
@@ -111,8 +117,29 @@ shipping:"Air & Sea"
 },
 
 {
+id:"coconut",
+title:"Coconut",
+category:"fruits",  // ✅ THIS IS YOUR MAIN FIX
+description:"Fresh export quality coconuts with high water and kernel content.",
+images:[
+"/assets/products/coconut/coconut1.jpg",
+"/assets/products/coconut/coconut2.png",
+"/assets/products/coconut/coconut3.png"
+],
+specs:{
+grade:"Premium Export Grade",
+packing:"25 / 50 pcs Bags",
+shelf:"30-45 Days",
+moq:"1 Container",
+storage:"Cool Dry Storage",
+shipping:"Sea Export"
+}
+},
+
+{
 id:"chicken",
 title:"Chicken",
+category:"meat",
 description:"Fresh hygienic poultry products.",
 images:[
 "/assets/products/chicken/chicken1.jpg",
