@@ -123,7 +123,7 @@ and consistent sourcing.
 
 
 
-{/* TRUST STRIP */}
+{/* ✅ MERGED TRUST + EXPORT SECTION */}
 <section className="about-stats">
 
 <div>
@@ -141,7 +141,17 @@ and consistent sourcing.
 <p>Reliable Global Supply</p>
 </div>
 
+<div className="export-text">
+<h3>Our Export Focus</h3>
+<p>
+We specialize in exporting fresh fruits, vegetables, spices, and poultry products
+to international markets with strict quality control, secure packaging, and reliable logistics support.
+</p>
+</div>
+
 </section>
+
+
 </div>
 );
 }

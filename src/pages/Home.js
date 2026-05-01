@@ -103,7 +103,7 @@ function Home() {
                     <div
                         key={i}
                         className={`hero-slide ${i === current ? "active" :
-                                i === (current - 1 + slides.length) % slides.length ? "prev" : ""
+                            i === (current - 1 + slides.length) % slides.length ? "prev" : ""
                             }`}
                         style={{ backgroundImage: `url(${slide})` }}
                     />
@@ -163,27 +163,25 @@ function Home() {
                 </div>
             </section>
 
-            {/* HIGHLIGHTS */}
+            {/* TRUST STRIP */}
             <section className="highlights">
+
                 <div className="highlight-box">
-                    <div className="highlight-icon">🌍</div>
-                    <h3>Global Export</h3>
-                    <p>Serving international markets with quality.</p>
+                    <h3>✔ Export Grade Quality</h3>
+                    <p>Carefully sourced agricultural and poultry products meeting global standards.</p>
                 </div>
 
                 <div className="highlight-box">
-                    <div className="highlight-icon">✅</div>
-                    <h3>Certified Quality</h3>
-                    <p>Strict inspection standards.</p>
+                    <h3>✔ Certified & Compliant</h3>
+                    <p>IEC, GST and FSSAI registered export operations.</p>
                 </div>
 
                 <div className="highlight-box">
-                    <div className="highlight-icon">🚚</div>
-                    <h3>Fast Logistics</h3>
-                    <p>Efficient delivery worldwide.</p>
+                    <h3>✔ Reliable Supply Chain</h3>
+                    <p>Consistent sourcing and dependable delivery for international markets.</p>
                 </div>
+
             </section>
-
             {/* ABOUT */}
             <section className="about-section">
                 <h2>About Our Business</h2>
