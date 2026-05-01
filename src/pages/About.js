@@ -123,26 +123,25 @@ and consistent sourcing.
 
 
 
-{/* STATS */}
+{/* TRUST STRIP */}
 <section className="about-stats">
 
 <div>
-<h2>50+</h2>
-<p>Global Clients</p>
+<h2>✔</h2>
+<p>Quality Assured Products</p>
 </div>
 
 <div>
-<h2>10+</h2>
-<p>Countries Served</p>
+<h2>✔</h2>
+<p>Certified Export Compliance</p>
 </div>
 
 <div>
-<h2>100+</h2>
-<p>Shipments Delivered</p>
+<h2>✔</h2>
+<p>Reliable Global Supply</p>
 </div>
 
 </section>
-
 </div>
 );
 }

@@ -57,21 +57,8 @@ function ProductDetail() {
                         alt={product.title}
                     />
 
-                    <div className="thumbs">
+                    
 
-                        {product.images.map((img, i) => (
-
-                            <img
-                                key={i}
-                                src={img}
-                                alt=""
-                                onClick={() => setIndex(i)}
-                                className={i === index ? "active" : ""}
-                            />
-
-                        ))}
-
-                    </div>
 
                 </div>
 
