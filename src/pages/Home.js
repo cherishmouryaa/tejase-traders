@@ -214,7 +214,7 @@ function Home() {
             <section className="cta-banner">
                 <div className="cta-content">
                     <h2>Looking for Bulk Orders?</h2>
-                    <h1>Contact Us Today</h1>
+                    <h1>Contact Us</h1>
 
                     <div className="cta-box">
                         <input type="text" placeholder="Enter your email" />
