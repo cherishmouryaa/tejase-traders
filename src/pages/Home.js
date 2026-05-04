@@ -163,22 +163,35 @@ function Home() {
                 </div>
             </section>
 
-            {/* TRUST STRIP */}
-            <section className="highlights">
+            {/* OUR VISION */}
+            <section
+                className="highlights"
+                style={{
+                    background: "#14532d",
+                    color: "#ffffff",
+                    padding: "60px 20px",
+                    textAlign: "center",
+                }}
+            >
 
-                <div className="highlight-box">
-                    <h3>✔ Export Grade Quality</h3>
-                    <p>Carefully sourced agricultural and poultry products meeting global standards.</p>
-                </div>
+                <div style={{ maxWidth: "800px", margin: "0 auto" }}>
 
-                <div className="highlight-box">
-                    <h3>✔ Certified & Compliant</h3>
-                    <p>IEC, GST and FSSAI registered export operations.</p>
-                </div>
+                    <h2 style={{ marginBottom: "20px", fontSize: "28px" }}>
+                        Our Vision
+                    </h2>
 
-                <div className="highlight-box">
-                    <h3>✔ Reliable Supply Chain</h3>
-                    <p>Consistent sourcing and dependable delivery for international markets.</p>
+                    <p style={{ lineHeight: "1.7", marginBottom: "15px" }}>
+                        At Tejase Traders, our vision is to become a trusted global partner
+                        in delivering premium agricultural and poultry products.
+                        We are committed to quality, consistency, and building long-term
+                        relationships through reliable supply and customer satisfaction.
+                    </p>
+
+                    <p style={{ lineHeight: "1.7" }}>
+                        We take pride in maintaining high standards, ensuring every product
+                        meets export quality expectations while strengthening trust across markets.
+                    </p>
+
                 </div>
 
             </section>
